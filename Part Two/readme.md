@@ -10,11 +10,17 @@ arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole --role-name man
 2. Create Zip
 
 ```
-zip -r zipfile ..
+zip -r zipfile
 ```
 
 3. Create Lambda Function
 
 ```
 aws lambda create-function --function-name manning-museum --zip-file fileb://zipfile.zip --runtime nodejs14.x --role arn:aws:iam::227033462436:role/manning-lambda-role --handler index.handler
+```
+
+4. Update
+
+```
+aws lambda update-function-code --function-name manning-museum --zip-file fileb://zipfile.zip
 ```
